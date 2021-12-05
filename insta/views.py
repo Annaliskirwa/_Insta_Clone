@@ -29,3 +29,11 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'registration_form.html', {'form': form})
+
+@login_required(login_url='/accounts/login/')
+def index(request):
+    posts = Image.objects.all()
+    profile = Profile.objects.all()
+    comment = Comment.objects.all()
+  
+    return render(request,'index.html',{"posts":posts,"profile":profile,"comment":comment})
