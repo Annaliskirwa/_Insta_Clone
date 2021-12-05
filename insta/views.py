@@ -11,3 +11,11 @@ from django.core.mail import EmailMultiAlternatives, send_mail
 from django.contrib import messages
 
 # Create your views here.
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = request.POST['username']
+            password = request.POST['password']
+            email = request.POST['email']
