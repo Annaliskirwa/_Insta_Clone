@@ -19,3 +19,13 @@ def signup(request):
             username = request.POST['username']
             password = request.POST['password']
             email = request.POST['email']
+            user = User.objects.create_user(username=username, email=email,password=password)
+            subject = 'Uh-huh, glad you are here!! Welcome to Insta_Clone'
+            message = f'Hi {user.username}, thank you for registering with Insta_Clone.'
+            email_from = settings.EMAIL_HOST_USER
+            recipient_list = [user.email, ]
+            send_mail( subject, message, email_from, recipient_list )
+            return HttpResponse('Thank you for registering with Insta_Clone')
+    else:
+        form = SignUpForm()
+    return render(request, 'registration_form.html', {'form': form})
