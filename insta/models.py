@@ -62,3 +62,19 @@ class Comments(models.Model):
     user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='comments')
     comment_date = models.DateTimeField(auto_now_add=True) 
     
+
+    class Meta:
+        ordering = ["-comment_date"]
+
+    
+    def get_absolute_url(self):
+        return f"/post/{self.id}"
+    
+    
+    @classmethod
+    def get_comments_by_images(cls, id):
+        comments = cls.objects.filter(id = id).first()
+        return comments
+
+    def __str__(self):
+        return f'{self.user.name} Image'
