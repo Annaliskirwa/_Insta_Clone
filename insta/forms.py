@@ -28,3 +28,13 @@ class UserRegisterForm(UserCreationForm):
 
 
 User._meta.get_field('email')._unique = True 
+
+
+class UpdateUserProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['profile_pic', 'bio']
+        widgets = {
+            'bio': Textarea(attrs={'cols': 20, 'rows': 5}),
+        }
+  
