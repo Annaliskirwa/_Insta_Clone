@@ -17,6 +17,7 @@ from django.conf.urls import include
 from django.contrib.auth import views 
 from django.contrib import admin
 from django.urls import path
+from insta import views as insta_views
 
 urlpatterns = [
      path('admin/', admin.site.urls),
