@@ -4,6 +4,7 @@ certifi==2021.10.8
 cloudinary==1.28.0
 Django==3.2.9
 django-bootstrap4==21.1
+django-crispy-forms==1.13.0
 django-emoji-picker==0.0.6
 django-tinymce==3.4.0
 psycopg2==2.9.2
