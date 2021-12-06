@@ -37,3 +37,4 @@ def index(request):
     comment = Comment.objects.all()
   
     return render(request,'index.html',{"posts":posts,"profile":profile,"comment":comment})
+
