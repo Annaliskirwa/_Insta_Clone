@@ -33,3 +33,12 @@ class Profile(models.Model):
     @classmethod
     def search_profile(cls, name):
         return cls.objects.filter(user__username__icontains=name).all()
+
+
+class Image(models.Model):
+    image = models.ImageField(upload_to='images/')
+    name = models.CharField(max_length=250, blank=True)
+    caption = models.CharField('Caption(optional)', max_length=300, blank=True)
+    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='images')
+    upload_date = models.DateTimeField(auto_now_add=True) 
+    likes = models.IntegerField(default=0)
