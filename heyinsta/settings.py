@@ -139,3 +139,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'login'
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dawkiqdwf',
+    'API_KEY': '616294889634382',
+    'API_SECRET': 'EbHqWdPX0QO8Fnywrnjnc5hZCkw',
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
