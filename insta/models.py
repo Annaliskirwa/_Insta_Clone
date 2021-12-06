@@ -42,3 +42,15 @@ class Image(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='images')
     upload_date = models.DateTimeField(auto_now_add=True) 
     likes = models.IntegerField(default=0)
+
+
+    class Meta:
+        ordering = ['-upload_date']
+        
+    def get_user_images(cls, username):
+        images = Image.objects.filter(image__user = username)
+        return images
+
+    
+    def __str__(self):
+        return f'{self.user.username} Image'
