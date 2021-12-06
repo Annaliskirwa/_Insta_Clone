@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'cloudinary',
     'emoji_picker',
     'bootstrap4',
-    'crispy_forms'
+    'crispy_forms',
+    'insta'
 ]
 
 MIDDLEWARE = [

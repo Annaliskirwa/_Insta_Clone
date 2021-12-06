@@ -18,10 +18,11 @@ from django.contrib.auth import views
 from django.contrib import admin
 from django.urls import path
 from insta import views as insta_views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('instagram.urls')),
+    path('',include('insta.urls')),
     path('tinymce /', include('tinymce.urls')),
     path('accounts/register/',insta_views.register, name='register'),
     path('accounts/login/',auth_views.LoginView.as_view(), name='login'),
