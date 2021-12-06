@@ -45,3 +45,9 @@ class UpdateUserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('username', 'email')
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Image
+        fields = ('image', 'caption')
+        
