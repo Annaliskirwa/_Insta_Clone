@@ -20,9 +20,11 @@ from django.urls import path
 from insta import views as insta_views
 
 urlpatterns = [
-     path('admin/', admin.site.urls),
-    path('',include('insta.urls')),  
-    path(r'accounts/', include('registration.backends.simple.urls')),
-    path(r'logout/', views.LogoutView.as_view(), {"next_page": 'accounts/login'}), 
+    path('admin/', admin.site.urls),
+    path('',include('insta.urls')),
+    path('tinymce /', include('tinymce.urls')),
+    path('accounts/register/',insta_views.register, name='register'),
+    path('accounts/login/',auth_views.LoginView.as_view(), name='login'),
+    path('logout/',auth_views.LogoutView.as_view(), name='logout'),
 
 ]
