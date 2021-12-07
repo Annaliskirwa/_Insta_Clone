@@ -1,1 +1,1 @@
-web: gunicorn heyinsta.wsgi --log-file -
+web: gunicorn heyinsta.wsgi
