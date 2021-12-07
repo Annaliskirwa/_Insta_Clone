@@ -1,11 +1,12 @@
 from django.urls import path
-# from django.conf.urls import url
+from django.conf.urls import url
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('',views.index, name='home'),
+    
     path('profile/<username>/', views.profile, name='profile'),
     path('unfollow/<to_unfollow>', views.unfollow, name='unfollow'),
     path('follow/<to_follow>', views.follow, name='follow'),

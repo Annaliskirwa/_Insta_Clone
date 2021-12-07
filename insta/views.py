@@ -122,3 +122,5 @@ def like(request, id):
     post.likes += 1
     post.save()
     return HttpResponseRedirect(reverse("home"))
+
+
