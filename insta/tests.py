@@ -56,3 +56,26 @@ class ImageTestClass(TestCase):
         img = self.newImage.get_image_by_id(self.newImage.id)
         images = Image.objects.filter(id=self.newImage.id)
         self.assertTrue(img, images)    
+
+class CommentTestCase(TestCase):
+    def setUp(self):
+        self.user = User(username='joy')
+        self.user.save()
+
+        self.new_profile = Profile(profile_pic='profile.png',bio='this is a test profile',user=self.user)
+        self.new_profile.save()
+        self.newImage = Image(image='profile.png',caption="image", profile=self.new_profile)
+        self.comment = Comment(comment='bla bla bla', user=self.new_profile, post = self.newImage, date="23-01-2020")
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.comment, Comment))
+
+    def test_save_comment(self):
+        self.comment.save_comment()
+        comment = Comment.objects.all()
+        self.assertFalse(len(comment) > 1)
+
+    def test_delete_comment(self):
+        self.comment.save_comment()
+        comment = Comment.objects.all()
+        self.assertTrue(len(comment)  <= 1)
