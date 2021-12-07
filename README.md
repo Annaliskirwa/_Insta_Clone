@@ -25,7 +25,7 @@ As a user of Insta Clone web application, you will be able to:
 ## Setup/Installation Requirements  
  ### To interact with the Insta Clone web application:
  * Have the latest version of browser installed   
- * Click on this <a href = "">link</a> to use Insta Clone  
+ * Click on this <a href = "https://instacloneann.herokuapp.com/">link</a> to use Insta Clone  
   ### To contribute to Fotoo web application:  
  #### Clone the Repo  
  * Create an account on Github
