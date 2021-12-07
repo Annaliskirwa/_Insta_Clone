@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from .models import Comment, Profile, Image
+from .models import Comments, Profile, Image
 from django.contrib.auth.models import User
 
 # Create your tests here
@@ -59,23 +59,23 @@ class ImageTestClass(TestCase):
 
 class CommentTestCase(TestCase):
     def setUp(self):
-        self.user = User(username='joy')
+        self.user = User(username='Ann')
         self.user.save()
 
         self.new_profile = Profile(profile_pic='profile.png',bio='this is a test profile',user=self.user)
         self.new_profile.save()
         self.newImage = Image(image='profile.png',caption="image", profile=self.new_profile)
-        self.comment = Comment(comment='bla bla bla', user=self.new_profile, post = self.newImage, date="23-01-2020")
+        self.comment = Comments(comment='bla bla bla', user=self.new_profile, post = self.newImage, date="07-12-2021")
 
     def test_instance(self):
-        self.assertTrue(isinstance(self.comment, Comment))
+        self.assertTrue(isinstance(self.comment, Comments))
 
     def test_save_comment(self):
         self.comment.save_comment()
-        comment = Comment.objects.all()
+        comment = Comments.objects.all()
         self.assertFalse(len(comment) > 1)
 
     def test_delete_comment(self):
         self.comment.save_comment()
-        comment = Comment.objects.all()
+        comment = Comments.objects.all()
         self.assertTrue(len(comment)  <= 1)
